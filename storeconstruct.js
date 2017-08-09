@@ -6,7 +6,7 @@ function Store (storeLocation, minCustomer, maxCustomer, avgCookies, id, openHou
     this.avgCookies = avgCookies;
     this.id = id;
     this.cookiesPerHour = [];
-    this.openHours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+    //this.openHours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
     this.addToDom();
 }
 
@@ -16,7 +16,7 @@ Store.prototype.calculateCust = function () {
 
 Store.prototype.calCookieData = function () {
         console.log(this.cookiesPerHour);
-    for (var i = 0; i < this.openHours.length; i++) {
+    for (var i = 0; i < 15; i++) {
         this.cookiesPerHour.push(Math.floor( this.calculateCust() * this.avgCookies ));
     }
     return this.cookiesPerHour;
@@ -38,21 +38,8 @@ Store.prototype.addToDom = function () {
         container.appendChild(newTableData);
     }
 }
-// BobStore.prototype.addToDom = function () {
-      
-//     this.calCookieData();
 
-//       var listAdd = document.getElementById('list');
-//       var newList = document.createElement('li');
-
-//     for ( var i = 0; i < this.openHours.length; i++) {
-//         var cookieLi = document.createElement('li');
-//         cookieLi.innerText = (this.openHours[i] + this.cookiesPerHour[i] + ' Cookies');
-//         newList.appendChild(cookieLi);
-//     }
-//}
-
-var pdxAirport = new Store('PDX Airport', 23, 65, 6.3, 'pdx-airport');
+var pdxAirport = new Store('PDX Airport', 23, 65, 6.3, );
 var pioneerSquare = new Store('Pioneer Square', 3, 24, 1.2, 'pioneer-square');
 var powells = new Store('Powell\'s', 11, 38, 3.7, 'powells');
 var stJohns = new Store('St. John\'s', 20, 38, 2.3, 'st-johns');
