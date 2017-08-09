@@ -10,17 +10,13 @@ function Store (storeLocation, minCustomer, maxCustomer, avgCookies, id, ) {
     this.addToDom();
 }
 
-Store.prototype.dailyStoreTotalCalc = function () {
-   this.dailyStoreTotal = this.cookiesPerHour.reduce(function( a , b ) { return a + b });
-}
-
 //Calculating avg customer per hour.
 Store.prototype.calculateCust = function () {
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
 }
 
 //Calculating total cookies per hour for each store. 
-Store.prototype.calCookieData = function () {
+Store.prototype.calCookiePerHour = function () {
         console.log(this.cookiesPerHour);
     for (var i = 0; i < 15; i++) {
         this.cookiesPerHour.push(Math.floor( this.calculateCust() * this.avgCookies ));
@@ -28,9 +24,13 @@ Store.prototype.calCookieData = function () {
     return this.cookiesPerHour;
 }
 
+Store.prototype.dailyStoreTotalCalc = function () {
+   this.dailyStoreTotal = this.cookiesPerHour.reduce(function( a , b ) { return a + b });
+}
+
 // getting stores to display on DOM
 Store.prototype.addToDom = function () {
-    this.calCookieData();
+    this.calCookiePerHour();
     var containerStore = document.getElementById("stores");
     var newRow = document.createElement('tr');
     newRow.setAttribute('id', this.id);
@@ -48,9 +48,16 @@ Store.prototype.addToDom = function () {
     }
 
     this.dailyStoreTotalCalc();
-    var tableData = document.createElement('td');
-    tableData.innerText = this.dailyStoreTotal;
-    containerRow.appendChild(tableData);
+    var tdStoreTotal = document.createElement('td');
+    tdStoreTotal.setAttribute('class', 'daily-total' );
+    tdStoreTotal.innerText = this.dailyStoreTotal;
+    containerRow.appendChild(tdStoreTotal);
+}
+
+function allStoreTotal () {
+    var dailyTotalList = document.getElementsByClassName('daily-total');
+    for (var i = 0; i < 5; i++ );
+    var dailyTotalIntegers = dailyTotalIntegers + dailyTotalList[i].innerHTML
 }
 
 var pdxAirport = new Store('PDX Airport', 23, 65, 6.3, );
