@@ -1,19 +1,25 @@
 
-function Store (storeLocation, minCustomer, maxCustomer, avgCookies, id, openHours ) {
+function Store (storeLocation, minCustomer, maxCustomer, avgCookies, id, ) {
     this.storeLocation = storeLocation;
     this.minCustomer = minCustomer;
     this.maxCustomer = maxCustomer;
     this.avgCookies = avgCookies;
     this.id = id;
     this.cookiesPerHour = [];
-    //this.openHours = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ', '8pm: '];
+    this.dailyStoreTotal = 0;
     this.addToDom();
 }
 
+Store.prototype.dailyStoreTotalCalc = function () {
+   this.dailyStoreTotal = this.cookiesPerHour.reduce(function( a , b ) { return a + b });
+}
+
+//Calculating avg customer per hour.
 Store.prototype.calculateCust = function () {
     return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
 }
 
+//Calculating total cookies per hour for each store. 
 Store.prototype.calCookieData = function () {
         console.log(this.cookiesPerHour);
     for (var i = 0; i < 15; i++) {
@@ -22,21 +28,29 @@ Store.prototype.calCookieData = function () {
     return this.cookiesPerHour;
 }
 
+// getting stores to display on DOM
 Store.prototype.addToDom = function () {
     this.calCookieData();
-    var container = document.getElementById("stores");
+    var containerStore = document.getElementById("stores");
     var newRow = document.createElement('tr');
     newRow.setAttribute('id', this.id);
     newRow.innerHTML = this.storeLocation;
-    container.appendChild(newRow);
+    containerStore.appendChild(newRow);
 
 
+    var containerRow = document.getElementById(this.id);
+
+//getting data to display on DOM
     for (var i = 0; i < 15; i++ ) {
-        var container = document.getElementById(this.id);
         var newTableData = document.createElement('td')
         newTableData.innerText = this.cookiesPerHour[i]
-        container.appendChild(newTableData);
+        containerRow.appendChild(newTableData);
     }
+
+    this.dailyStoreTotalCalc();
+    var tableData = document.createElement('td');
+    tableData.innerText = this.dailyStoreTotal;
+    containerRow.appendChild(tableData);
 }
 
 var pdxAirport = new Store('PDX Airport', 23, 65, 6.3, );
