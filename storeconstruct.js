@@ -47,17 +47,22 @@ Store.prototype.addToDom = function () {
         containerRow.appendChild(newTableData);
     }
 
-    this.dailyStoreTotalCalc();
-    var tdStoreTotal = document.createElement('td');
-    tdStoreTotal.setAttribute('class', 'daily-total' );
-    tdStoreTotal.innerText = this.dailyStoreTotal;
-    containerRow.appendChild(tdStoreTotal);
+    // this.dailyStoreTotalCalc();
+    // tdStoreTotal.innerText = this.dailyStoreTotal;
+    // containerRow.appendChild(tdStoreTotal);
 }
 
-function allStoreTotal () {
+Store.prototype.allStoreTotal = function () {
+    var tdStoreTotal = document.createElement('td');
+    tdStoreTotal.setAttribute('class', 'daily-total' );
+    var dailyTotalIntegers = 0;
     var dailyTotalList = document.getElementsByClassName('daily-total');
-    for (var i = 0; i < 5; i++ );
-    var dailyTotalIntegers = dailyTotalIntegers + dailyTotalList[i].innerHTML
+    for (var i = 0; i < 5; i++ ) {
+        console.log(dailyTotalIntegers, dailyTotalList)
+    dailyTotalIntegers = parseInt(dailyTotalIntegers + dailyTotalList[i]);
+    return dailyTotalIntegers;
+    console.log(dailyTotalList[0]);
+    }
 }
 
 var pdxAirport = new Store('PDX Airport', 23, 65, 6.3, );
@@ -65,3 +70,40 @@ var pioneerSquare = new Store('Pioneer Square', 3, 24, 1.2, 'pioneer-square');
 var powells = new Store('Powell\'s', 11, 38, 3.7, 'powells');
 var stJohns = new Store('St. John\'s', 20, 38, 2.3, 'st-johns');
 var waterFront = new Store('Waterfront', 2, 16, 4.6, 'waterfront');
+
+var allShops = [pdxAirport, pioneerSquare, powells, stJohns, waterFront];
+
+//// lecture demo on total for all stores
+    // TODO get column for total
+    /* 
+    loop over columns
+    create a row
+    get total per column
+    create a <td>, give the total
+    append each one to the row
+    append row to our table
+    */
+
+function renderHourlyTotal () {
+    var addRow =  document.getElementById('stores');
+    var hourlyTotalsRow = document.createElement('tr');
+
+    var hourlyHeader = document.createElement('th');
+    hourlyHeader.innerText = 'Hourly Totals';
+
+    hourlyTotalsRow.appendChild (hourlyHeader);
+
+        for (var i = 0; i <14; i ++ ) {
+            var newCell = document.createElement('td');
+            
+            var colTotal = 0 ;
+            for (var j = 0; j < allShops.length; j ++ ) {
+                colTotal += allShops[j].cookiesPerHour[i];
+            }
+
+            newCell.innerText = colTotal
+            hourlyTotalsRow.appendChild(newCell);
+        }
+
+    addRow.appendChild(hourlyTotalsRow);
+}
