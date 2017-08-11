@@ -6,7 +6,6 @@ function Store(storeLocation, minCustomer, maxCustomer, avgCookies, id, openHour
         this.id = id,
         this.cookiesPerHour = [],
         this.dailyStoreTotal = 0,
-        //this.allStoreTotal = 0,
         this.addToDom();
         
 }
@@ -48,7 +47,11 @@ Store.prototype.addToDom = function () {
         var newTableData = document.createElement('td');
         newTableData.innerText = this.cookiesPerHour[i]; //[i]
         container.appendChild(newTableData);
+        this.dailyStoreTotal += this.cookiesPerHour[i];
     }
+    var newTotalCol = document.createElement('td');
+    newTotalCol.innerHTML = this.dailyStoreTotal;
+    container.appendChild(newTotalCol);
 } 
 
 
@@ -76,7 +79,9 @@ function renderHourlyTotals () {
         newCell.innerText = colTotal;
         hourlyTotalsRow.appendChild( newCell );
     }
-
+    var grandTotalContainer = document.createElement('td');
+    grandTotalContainer.innerText = grandTotal();
+    hourlyTotalsRow.appendChild(grandTotalContainer);
 }
 //TODO create another for loop to iterate over allShops to give allShopTOtaltotal
 
@@ -99,3 +104,10 @@ form.addEventListener( 'submit', function () {
 renderHourlyTotals();
 });
 
+function grandTotal () {
+    var grandTotal = 0;
+    for (var i = 0; i < allShops.length; i++ ) {
+        grandTotal += allShops[i].dailyStoreTotal;
+    }
+    return grandTotal;
+}

@@ -73,16 +73,7 @@ var waterFront = new Store('Waterfront', 2, 16, 4.6, 'waterfront');
 
 var allShops = [pdxAirport, pioneerSquare, powells, stJohns, waterFront];
 
-//// lecture demo on total for all stores
-    // TODO get column for total
-    /* 
-    loop over columns
-    create a row
-    get total per column
-    create a <td>, give the total
-    append each one to the row
-    append row to our table
-    */
+
 
 function renderHourlyTotal () {
     var addRow =  document.getElementById('stores');
