@@ -1,73 +1,86 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style> 
-            table, td, tr {
-                border: solid 1px grey;
-                padding: 5px;
-            }
-        </style>
+        <meta charset="utf-8">
+        <title>Salmon Cookies Front Page</title>
+        <link rel="stylesheet" href="../sam-skeleton/css/normalize.css">
+        <link rel="stylesheet" href="style.css"> 
     </head>
     <body>
-        <h1> Cookie Stand</h1>
-            <section>
-                <h1> Cookie Sales Per Hour </h1>
-                <table>
-                    <thead>
-                        <th> </th>
-                        <th>6am </th>
-                        <th>7am </th>
-                        <th>8am </th>
-                        <th>9am </th>
-                        <th>10am </th>
-                        <th>11am </th>
-                        <th>12pm </th>
-                        <th>1pm </th>
-                        <th>2pm </th>
-                        <th>3pm </th>
-                        <th>4pm </th>
-                        <th>5pm </th>
-                        <th>6pm </th>
-                        <th>7pm </th>
-                        <th>8pm </th>
-                        <th>Total</th>
-                    </thead>
-                   
-                    <tbody id="stores">
-                    
-                        
-                    </tbody>
+        <header>
+            <nav>
+                <ul id="top-nav">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="sales.html">Sales</a></li>
+                    <li class="nav-item">Contact:</li>
+                    <li class="nav-item"><img class="media-icon" src="icons/fb.png" alt="Facebook" /></li>
+                    <li class="nav-item"><img class="media-icon" src="icons/gmail.png" alt="Gmail" /></li>
+                    <li class="nav-item"><img class="media-icon" src="icons/twitter.png" alt="Twitter"/></li>
+                    <li class="nav-item"> <a href="https://www.instagram.com/accounts/login/">
+                <img class="media-icon" src="icons/instagram.png" alt="Instagram" />
+                    </a></li>
+                </ul>
 
-                </table>
+                <ul id="cart">
+                    <li class="nav-item" href="">Shopping Cart</li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                <h1>Welcome to Pats Cookie Store!</h1>
+                <img id="salmonPicture" src="images/salmon.png" alt="picture of salmon">
+                <article>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed nisl vel massa porttitor varius. In hac habitasse platea dictumst. Vestibulum justo tellus, consectetur id porta in, interdum et sapien. Pellentesque pulvinar, tortor scelerisque dapibus viverra, orci arcu viverra nibh, nec porta leo purus at erat. Fusce imperdiet mauris ex, vitae aliquet quam dignissim non. Ut sit amet molestie felis. Maecenas semper neque ut mi tincidunt mattis. Aliquam tincidunt tincidunt leo nec condimentum. Praesent dapibus mi at dui ultricies euismod. Praesent id sem quam. Curabitur dictum laoreet lorem, pretium volutpat eros sodales at. Aliquam efficitur nulla eros, vitae sollicitudin neque maximus vitae. Integer viverra elit a urna convallis, a mattis odio tempus.
+
+Nam quis elit id metus accumsan hendrerit. Integer consequat, tellus at iaculis accumsan, ante dui sodales turpis, id tincidunt orci lectus a nulla. Aenean pretium venenatis massa vel faucibus. Aliquam efficitur risus ut urna dictum mattis. Sed ante augue, tincidunt a quam nec, sodales auctor velit. Nullam tempor elit vitae erat aliquam, sed ultrices ipsum vulputate. Nullam fringilla dignissim velit ut scelerisque. Quisque placerat aliquam purus at dapibus. Sed lobortis dolor vitae est suscipit, ut tincidunt dui gravida. Vivamus lobortis sagittis justo, a vulputate augue fringilla vitae. Nullam laoreet rutrum nibh eget venenatis.
+
+Mauris ut sem non nulla dignissim convallis sed sit amet ligula. Etiam venenatis erat id sem imperdiet, vel pretium justo ultricies. Ut placerat vestibulum elementum. Maecenas nec est a sem convallis gravida placerat eget erat. Praesent condimentum pharetra ex at laoreet. Aenean gravida diam diam, et luctus nulla tristique at. Phasellus vel tortor ac nisi interdum dapibus in id libero.</p>
+                </article>
+            <img id="salmonPicture" src="images/salmon.png" alt="picture of salmon">
             </section>
-
-            <hr>
-            <form id="newStore" action= "sales.js"> 
-                <fieldset> 
-                    <legend>New Store</legend>
-
-                        <label for="storeLocation"> Enter Location </label>
-                        <input type="text" name="storeLocation" id="storelocation" placeholder="enter store name here">
-
-                        <label for="minCustomer">Enter min customer </label>
-                        <input type="number" name="minCustomer" id="minCustomer" placeholder="Enter min customer">
-
-                        <label for="maxCustomer"> Enter max customer </label>
-                        <input type="number" name="maxCustomer" id="maxCustomer" placeholder="Enter max Customer">
-
-                        <label for="avgCookie">Enter avg cookie amount</label>
-                        <input type="number" name="avgCookie" id="avgCookie" placeholder="Enter avg cookie">
-
-                        <label for="storeId">Enter store ID</label>
-                        <input type="text" name="storeId" id="storeId" placeholder="Enter store id">
-
-                        <button type="submit"> Submit </button>
-
-
-                </fieldset>
-            </form>
-        
-
-    <script src="sales.js"></script>
+            <section>
+                <h2>Quick Order</h2>
+                <form id="form">
+                    <fieldset>
+                        <legend>Quick Order Products</legend>
+                        <select name="Order">
+                            <option value="cutter">Cookie Cutter</option>
+                            <option value="cookies">Salmon Cookies</option>
+                            <option value="shirt">T-Shirt</option>
+                        </select>
+                        <button>Submit</button>
+                    </fieldset>
+                </form>
+                <div>
+                    <img src="images/cutter.jpeg" alt="Cookie Cutter">
+                    <img src="images/frosted-cookie.jpg" alt="Salmon Cookie">
+                    <img src="images/shirt.jpg" alt="Salmon Shirt">
+                </div>
+            </section>
+            <section>
+                <h2>About Us</h2>
+                <img id="family" src="images/family.jpg" alt="Family" >
+                <article>
+                    <p>Nam quis elit id metus accumsan hendrerit. Integer consequat, tellus at iaculis accumsan, ante dui sodales turpis, id tincidunt orci lectus a nulla. Aenean pretium venenatis massa vel faucibus. Aliquam efficitur risus ut urna dictum mattis. Sed ante augue, tincidunt a quam nec, sodales auctor velit. Nullam tempor elit vitae erat aliquam, sed ultrices ipsum vulputate. Nullam fringilla dignissim velit ut scelerisque. Quisque placerat aliquam purus at dapibus. Sed lobortis dolor vitae est suscipit, ut tincidunt dui gravida. Vivamus lobortis sagittis justo, a vulputate augue fringilla vitae. Nullam laoreet rutrum nibh eget venenatis. </p>
+                </article>
+            </section>
+            <section>
+                <h3>Location and Hours</h3>
+                <article>
+                    <p>
+                        Hours: Open Tuesday to Saturday, 6am - 6pm
+                    </p>
+                </article>
+                <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2491.793896323714!2d-122.68266681957056!3d45.5235855372221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950a0f90bed80f%3A0x6fa9633757879d6e!2sAlchemy+Code+Lab!5e0!3m2!1sen!2sus!4v1502661375250" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </section>
+            <div>
+                <img class="fish" src="images/fish.jpg" alt="colored salmon">
+                <img class="fish" src="images/fish.jpg" alt="colored salmon">
+                <img class="fish" src="images/fish.jpg" alt="colored salmon">
+                <img class="fish" src="images/fish.jpg" alt="colored salmon">
+            </div>
+        </main>
+        <footer>&copy; 2017 Alchemy Code Labs</footer>
     </body>
 </html>

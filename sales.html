@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/base-min.css">
+        <link href='sales.css' rel='stylesheet' type='text/css'>
+        <style> 
+            table, td, tr {
+                border: solid 1px grey;
+                padding: 5px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <img src="images/salmon.png" alt="salmon">
+        <h1> Cookie Stand</h1>
+            <section>
+                <h1> Cookie Sales Per Hour </h1>
+                <table>
+                    <thead>
+                        <th> </th>
+                        <th>6am </th>
+                        <th>7am </th>
+                        <th>8am </th>
+                        <th>9am </th>
+                        <th>10am </th>
+                        <th>11am </th>
+                        <th>12pm </th>
+                        <th>1pm </th>
+                        <th>2pm </th>
+                        <th>3pm </th>
+                        <th>4pm </th>
+                        <th>5pm </th>
+                        <th>6pm </th>
+                        <th>7pm </th>
+                        <th>8pm </th>
+                        <th>Total</th>
+                    </thead>
+                   
+                    <tbody id="stores">
+                    
+                        
+                    </tbody>
+
+                </table>
+            </section>
+
+            <hr>
+            <form id="newStore" action= "sales.js"> 
+                <fieldset> 
+                    <legend>New Store</legend>
+
+                        <label for="storeLocation"> Enter Location </label>
+                        <input type="text" name="storeLocation" id="storelocation" placeholder="enter store name here">
+
+                        <label for="minCustomer">Enter min customer </label>
+                        <input type="number" name="minCustomer" id="minCustomer" placeholder="Enter min customer">
+
+                        <label for="maxCustomer"> Enter max customer </label>
+                        <input type="number" name="maxCustomer" id="maxCustomer" placeholder="Enter max Customer">
+
+                        <label for="avgCookie">Enter avg cookie amount</label>
+                        <input type="number" name="avgCookie" id="avgCookie" placeholder="Enter avg cookie">
+
+                        <label for="storeId">Enter store ID</label>
+                        <input type="text" name="storeId" id="storeId" placeholder="Enter store id">
+
+                        <button type="submit"> Submit </button>
+
+
+                </fieldset>
+            </form>
+        
+
+    <script src="sales.js"></script>
+    </body>
+</html>
