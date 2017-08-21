@@ -64,23 +64,7 @@ li {
   
 }
 
-#media-bar {
-  background-color: #ccc;
-  width: 80px;
-  height: 300px;
-  border: 1px solid black;
-  border-radius: 4px;
-
-  position: fixed;
-  top: 200px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
 #main-content {
   margin: 10px 100px;
   padding: 0 10%; 
-}
+} 
